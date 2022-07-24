@@ -114,6 +114,11 @@ export default function Dashboard() {
                 open={open}
             >
                 <DrawerHeader>
+                    <Box sx={{ mr: 4.25 }}>
+                        <Typography >
+                            MusicNote
+                        </Typography>
+                    </Box>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
