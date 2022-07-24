@@ -22,7 +22,8 @@ function getNewTimeProps(barRect, clientX, duration, minTime, maxTime) {
   const seconds = minMax(minTime, maxTime, Math.floor(((clientX - barRect.left) / barRect.width) * duration));
 
   const progress = (seconds / duration) * 100;
-
+  console.log(progress)
+  console.log(maxTime)
   return { seconds, progress };
 }
 
@@ -57,6 +58,8 @@ function TimeBar({ style, className, duration, progress, currentTime, isSeeking,
       left: `${maxValue}%`,
     });
   }
+
+
 
   const bind = useDrag(
     ({ xy, first, last, event }) => {
@@ -131,11 +134,9 @@ function TimeBar({ style, className, duration, progress, currentTime, isSeeking,
     if (ignoreTimeUpdates) {
       return;
     }
-
-    if(progress >= maxTime){
+    if(progress >= ((maxTime / duration) * 100)){
       pausePlayback();
     }
-
     setStyles(progress);
     // eslint-disable-next-line
   }, [progress]);
