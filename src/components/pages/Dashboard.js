@@ -21,6 +21,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Draggable from 'react-draggable';
 import { EditText } from 'react-edit-text';
 import DragDrop from '../atoms/DragDrop';
+import CanvasDataModel from '../organisms/CanvasDataModel';
 
 const drawerWidth = 240;
 
@@ -136,9 +137,7 @@ export default function Dashboard() {
             <Main open={open}>
                 <DrawerHeader />
                 <DragDrop />
-                <Draggable>
-                    <EditText placeholder="Type Here" />
-                </Draggable>
+                <CanvasDataModel></CanvasDataModel>
             </Main>
         </Box >
     );

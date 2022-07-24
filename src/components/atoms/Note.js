@@ -3,22 +3,24 @@ import Draggable from "react-draggable";
 import { EditTextarea } from "react-edit-text";
 import "react-edit-text/dist/index.css";
 
-export default function Notes(props) {
+export default function Note(props) {
   const [position, setPosition] = React.useState({ x: props.position.x, y: props.position.y });
 
-  const handleDrag = (e, ui) => {
-    const { x, y } = position;
-    setPosition({ x: x + ui.deltaX, y: y + ui.deltaY });
+  const handleStop = (e, {x, y}) => {
+    setPosition({ x, y });
   };
+
+  const nodeRef = React.useRef(null);
 
   return (
     <Draggable
       onStop={(e, ui) => {
-        handleDrag(e, ui);
+        handleStop(e, ui);
         props.onStop(position);
       }}
+      nodeRef={nodeRef}
     >
-      <div>
+      <div ref={nodeRef}>
         <EditTextarea
           placeholder="Enter your note."
           onSave={({ name, value, previousValue }) => {
