@@ -20,7 +20,7 @@ export const AnnotationsContext = React.createContext({
 
 export default function CanvasDataModel() {
     const [notes, setNotes] = React.useState({0: {text: "hello", position: {x: 0, y: 0}}, 1: {text: "hello", position: {x: 0, y: 200}}, 2: {text: "hello", position: {x: 0, y: 400}}});
-    const [clips, setClips] = React.useState({});
+    const [clips, setClips] = React.useState({10: {fileId: "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3", span: {start: 0, end: 100}, position: {x: 0, y: 0}}});
     const [files, setFiles] = React.useState({});
     const [annotations, setAnnotations] = React.useState({});
 
