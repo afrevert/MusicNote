@@ -18,8 +18,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import Draggable from 'react-draggable';
-import { EditText } from 'react-edit-text';
 import DragDrop from '../atoms/DragDrop';
 import CanvasDataModel from '../organisms/CanvasDataModel';
 
