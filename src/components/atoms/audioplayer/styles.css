@@ -55,6 +55,18 @@
     cursor: pointer;
   }
   
+  .timebar-bounds {
+    background-color: #306771;
+    width: 8px;
+    height: 32px;
+    position: absolute;
+    top: 0px;
+    transform: translate(-50%, calc(-50% + 2px));
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+
   .timebar-time-info {
     margin-top: 8px;
     font-size: 11px;

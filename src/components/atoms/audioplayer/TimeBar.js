@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useDrag } from "react-use-gesture";
 
+
+
 function formatTime(seconds) {
   return [Math.floor(seconds / 60), Math.floor(seconds % 60)]
     .map((x) => x.toString())
@@ -140,8 +142,8 @@ function TimeBar({ style, className, duration, progress, currentTime, isSeeking,
     <div className={`timebar ${className || ""}`} style={{ position: "relative", ...style }}>
       <div ref={barRef} className="timebar-bar" style={barStyle} />
       <div {...bind()} className="timebar-circle" style={circleStyle} />
-      <div {...bindMin()} className="min-circle" style={minCircleStyle} />
-      <div {...bindMax()} className="max-circle" style={maxCircleStyle} />
+      <div {...bindMin()} className="timebar-bounds" style={minCircleStyle} />
+      <div {...bindMax()} className="timebar-bounds" style={maxCircleStyle} />
       <div className="timebar-time-info">
         <div>{isSeeking ? "buffering..." : formatTime(currentTime)}</div>
         <div>{formatTime(duration)}</div>
