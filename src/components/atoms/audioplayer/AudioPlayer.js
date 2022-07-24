@@ -35,6 +35,7 @@ function AudioPlayer(props) {
               duration={audioProps.duration}
               progress={audioProps.progress}
               setTime={audioProps.setTime}
+              pausePlayback={audioProps.pausePlayback}
             />
           </div>
         )}

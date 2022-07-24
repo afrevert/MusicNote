@@ -26,7 +26,7 @@ function getNewTimeProps(barRect, clientX, duration, minTime, maxTime) {
   return { seconds, progress };
 }
 
-function TimeBar({ style, className, duration, progress, currentTime, isSeeking, setTime }) {
+function TimeBar({ style, className, duration, progress, currentTime, isSeeking, setTime, pausePlayback }) {
   const barRef = React.useRef(null);
 
   const [barStyle, setBarStyle] = React.useState({left: '0%'});
@@ -132,6 +132,10 @@ function TimeBar({ style, className, duration, progress, currentTime, isSeeking,
       return;
     }
 
+    if(progress >= maxTime){
+      pausePlayback();
+    }
+
     setStyles(progress);
     // eslint-disable-next-line
   }, [progress]);
@@ -140,8 +144,8 @@ function TimeBar({ style, className, duration, progress, currentTime, isSeeking,
     <div className={`timebar ${className || ""}`} style={{ position: "relative", ...style }}>
       <div ref={barRef} className="timebar-bar" style={barStyle} />
       <div {...bind()} className="timebar-circle" style={circleStyle} />
-      <div {...bindMin()} className="min-circle" style={minCircleStyle} />
-      <div {...bindMax()} className="max-circle" style={maxCircleStyle} />
+      <div {...bindMin()} className="timebar-bound" style={minCircleStyle} />
+      <div {...bindMax()} className="timebar-bound" style={maxCircleStyle} />
       <div className="timebar-time-info">
         <div>{isSeeking ? "buffering..." : formatTime(currentTime)}</div>
         <div>{formatTime(duration)}</div>

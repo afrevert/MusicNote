@@ -48,6 +48,10 @@ function useAudio(url) {
           audioRef.current.play();
           setPlaybackStatus("play");
         }
+      },
+      pausePlayback: () => {
+        audioRef.current.pause();
+        setPlaybackStatus("pause");
       }
     }
   ];
