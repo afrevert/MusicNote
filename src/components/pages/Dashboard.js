@@ -19,7 +19,8 @@ import ListItemText from '@mui/material/ListItemText';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Draggable from 'react-draggable';
-import { EditText } from 'react-edit-text'
+import { EditText } from 'react-edit-text';
+import DragDrop from '../atoms/DragDrop';
 
 const drawerWidth = 240;
 
@@ -83,7 +84,7 @@ export default function Dashboard() {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} sx={{ bgcolor: "#5F8575"} }>
+            <AppBar position="fixed" open={open} sx={{ bgcolor: "#5F8575" }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -132,13 +133,13 @@ export default function Dashboard() {
                     ))}
                 </List>
             </Drawer>
-            <Draggable>
-                <Main open={open}>
-                    <DrawerHeader />
-                    <EditText placeholder="Type Here">
-                    </EditText>
-                </Main>
-            </Draggable>
-        </Box>
+            <Main open={open}>
+                <DrawerHeader />
+                <DragDrop />
+                <Draggable>
+                    <EditText placeholder="Type Here" />
+                </Draggable>
+            </Main>
+        </Box >
     );
 }
