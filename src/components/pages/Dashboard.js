@@ -83,7 +83,7 @@ export default function Dashboard() {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} sx={{ bgcolor: "#c5edd2", color:"inherit" } }>
+            <AppBar position="fixed" open={open} sx={{ bgcolor: "#5F8575"} }>
                 <Toolbar>
                     <IconButton
                         color="inherit"
