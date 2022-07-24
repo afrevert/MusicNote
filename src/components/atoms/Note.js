@@ -22,14 +22,17 @@ export default function Note(props) {
       onStop={handleStop}
       nodeRef={nodeRef}
     >
-      <div
+      <div id='notecard'
         ref={nodeRef}
-        style={{ width: '200px' }}>
+        style={{ width: '200px', padding: '20px' }}>
+        
+
         <EditTextarea
           placeholder="Enter your note."
           defaultValue={props.text}
           onSave={handleSave}
         />
+        
       </div>
     </Draggable>
   );

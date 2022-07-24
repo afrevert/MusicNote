@@ -21,7 +21,7 @@ function AudioPlayer(props) {
       onStop={handleStop}
       nodeRef={nodeRef}
     >
-      <div ref={nodeRef} className="audio-player">
+      <div id='audioClip' ref={nodeRef} className="audio-player">
         {audioElement}
 
         {audioProps.isLoading ? (
