@@ -1,7 +1,9 @@
+import React from "react";
 import { NotesContext } from "./CanvasDataModel";
 import Note from "../atoms/Note";
 
 export default function Canvas() {
+    const [inp, setInput] = React.useState("");
     return (
         <NotesContext.Consumer>
             {({ notes, upsertNote, deleteNote }) => (
@@ -15,16 +17,29 @@ export default function Canvas() {
                             ))}
                     </ul>
                     <div>
-                        {Object.entries(notes).map(([id, { text, position }]) => (
-                            <Note
-                                text={text}
-                                position={position}
-                                onSave={(text) => upsertNote(id, text, notes[id].position)}
-                                onStop={(position) => upsertNote(id, notes[id].text, position)}
-                                key={id}>
-                            </Note>
-                        ))}
+                        {Object.entries(notes)
+                            .map(([id, { text, position }]) => (
+                                <Note
+                                    text={text}
+                                    position={position}
+                                    onSave={(text) => { 
+                                        if (text) { 
+                                            upsertNote(id, text, notes[id].position) 
+                                        } else { 
+                                            deleteNote(id) 
+                                        }
+                                    }}
+                                    onStop={(position) => upsertNote(id, notes[id].text, position)}
+                                    key={id}>
+                                </Note>
+                            ))}
                     </div>
+                    <form onSubmit={() => upsertNote(9, inp, {x: 0, y: 0})}>
+                        <label>
+                            <input type="text" value={inp} onChange={e => setInput(e.target.value)} />
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
                 </>
             )}
         </NotesContext.Consumer>
