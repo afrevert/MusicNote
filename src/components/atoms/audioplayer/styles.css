@@ -1,15 +1,4 @@
-html {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: radial-gradient(ellipse at center, #313131 0%, #1f1f1f 100%);
-    background-repeat: no-repeat;
-    height: 100vh;
-  }
-  
-  .audio-player {
+   .audio-player {
     margin: 164px 64px;
   }
   

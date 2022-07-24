@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useDrag } from "react-use-gesture";
-import { directstyled, useDirectStyle } from "direct-styled";
 
 function formatTime(seconds) {
   return [Math.floor(seconds / 60), Math.floor(seconds % 60)]
@@ -42,8 +41,8 @@ function TimeBar({
 }) {
   const barRef = React.useRef(null);
 
-  const [barStyle, setBarStyle] = useDirectStyle();
-  const [circleStyle, setCircleStyle] = useDirectStyle();
+  const [barStyle, setBarStyle] = React.useState();
+  const [circleStyle, setCircleStyle] = React.useState();
   const [ignoreTimeUpdates, setIgnoreTimeUpdates] = React.useState(false);
 
   function setStyles(progress) {
@@ -95,8 +94,8 @@ function TimeBar({
       className={`timebar ${className || ""}`}
       style={{ position: "relative", ...style }}
     >
-      <directstyled.div ref={barRef} className="timebar-bar" style={barStyle} />
-      <directstyled.div
+      <div ref={barRef} className="timebar-bar" style={barStyle} />
+      <div
         {...bind()}
         className="timebar-circle"
         style={circleStyle}

@@ -1,6 +1,7 @@
 import React from "react";
 import { NotesContext } from "./CanvasDataModel";
 import Note from "../atoms/Note";
+import AudioPlayer from "../atoms/audioplayer/AudioPlayer";
 
 export default function Canvas() {
     const [inp, setInput] = React.useState("");
@@ -8,6 +9,7 @@ export default function Canvas() {
         <NotesContext.Consumer>
             {({ notes, upsertNote, deleteNote }) => (
                 <>
+                    <AudioPlayer url="http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3"></AudioPlayer>
                     <ul>
                         {Object.entries(notes)
                             .map(([id, { text, position: { x, y } }]) => (
