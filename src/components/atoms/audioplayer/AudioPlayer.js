@@ -6,18 +6,22 @@ import TimeBar from "./TimeBar";
 import PlaybackButton from "./PlaybackButton";
 import Draggable from "react-draggable";
 
-function AudioPlayer({ url }) {
-
+function AudioPlayer(props) {
+  const [audioElement, audioProps] = useAudio(props.url);
+  const [position, setPosition] = React.useState({ x: props.position.x, y: props.position.y });
   const nodeRef = React.useRef(null);
 
-  const [audioElement, audioProps] = useAudio(url);
+  const handleStop = (e, ui) => {
+    setPosition(ui);
+    props.onStop(ui);
+  };
 
   return (
     <Draggable
-
-    nodeRef={nodeRef}
->
-      <div className="audio-player">
+      onStop={handleStop}
+      nodeRef={nodeRef}
+    >
+      <div ref={nodeRef} className="audio-player">
         {audioElement}
 
         {audioProps.isLoading ? (
