@@ -85,7 +85,7 @@ export default function Dashboard() {
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} sx={{ bgcolor: "#5F8575" }}>
+            <AppBar position="fixed" open={open} sx={{ bgcolor: "#5F8575" }} elevation={1}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -115,7 +115,7 @@ export default function Dashboard() {
                 open={open}
             >
                 <DrawerHeader>
-                    <Box sx={{ mr: 4.25 }}>
+                    <Box sx={{ mr: 5 }}>
                         <Typography >
                             MusicNote
                         </Typography>
