@@ -6,8 +6,8 @@ import "react-edit-text/dist/index.css";
 export default function Note(props) {
   const [position, setPosition] = React.useState({ x: props.position.x, y: props.position.y });
 
-  const handleStop = (e, {x, y}) => {
-    setPosition({ x, y });
+  const handleStop = (e, ui) => {
+    setPosition(ui);
   };
 
   const nodeRef = React.useRef(null);
@@ -16,7 +16,7 @@ export default function Note(props) {
     <Draggable
       onStop={(e, ui) => {
         handleStop(e, ui);
-        props.onStop(position);
+        props.onStop(ui);
       }}
       nodeRef={nodeRef}
     >
