@@ -19,7 +19,7 @@ export const AnnotationsContext = React.createContext({
 });
 
 export default function CanvasDataModel() {
-    const [notes, setNotes] = React.useState({});
+    const [notes, setNotes] = React.useState({0: {text: "hello", position: {x: 0, y: 0}}, 1: {text: "hello", position: {x: 0, y: 200}}, 2: {text: "hello", position: {x: 0, y: 400}}});
     const [clips, setClips] = React.useState({});
     const [files, setFiles] = React.useState({});
     const [annotations, setAnnotations] = React.useState({});

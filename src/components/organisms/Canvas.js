@@ -6,12 +6,6 @@ export default function Canvas() {
         <NotesContext.Consumer>
             {({ notes, upsertNote, deleteNote }) => (
                 <>
-                    <button onClick={() => upsertNote(3, "hello", { x: 0, y: 0 })}>
-                        add note
-                    </button>
-                    <button onClick={() => deleteNote(3)}>
-                        del note
-                    </button>
                     <ul>
                         {Object.entries(notes)
                             .map(([id, { text, position: { x, y } }]) => (
@@ -21,11 +15,15 @@ export default function Canvas() {
                             ))}
                     </ul>
                     <div>
-                        <Note
-                            position={{ x: 0, y: 0 }}
-                            onSave={(text) => upsertNote(3, text, notes[3].position)}
-                            onStop={(position) => upsertNote(3, notes[3].text, position)}>
-                        </Note>
+                        {Object.entries(notes).map(([id, { text, position }]) => (
+                            <Note
+                                text={text}
+                                position={position}
+                                onSave={(text) => upsertNote(id, text, notes[id].position)}
+                                onStop={(position) => upsertNote(id, notes[id].text, position)}
+                                key={id}>
+                            </Note>
+                        ))}
                     </div>
                 </>
             )}

@@ -1,3 +1,4 @@
+import { PropaneTankSharp } from "@mui/icons-material";
 import React from "react";
 import Draggable from "react-draggable";
 import { EditTextarea } from "react-edit-text";
@@ -20,9 +21,12 @@ export default function Note(props) {
       }}
       nodeRef={nodeRef}
     >
-      <div ref={nodeRef}>
+      <div 
+        ref={nodeRef}
+        style={{width: '200px'}}>
         <EditTextarea
           placeholder="Enter your note."
+          defaultValue={props.text}
           onSave={({ name, value, previousValue }) => {
             props.onSave(value);
           }}
