@@ -4,7 +4,6 @@ import Note from "../atoms/Note";
 import AudioPlayer from "../atoms/audioplayer/AudioPlayer";
 
 export default function Canvas() {
-    const [inp, setInput] = React.useState("");
     return (
         <NotesContext.Consumer>
             {({ notes, upsertNote, deleteNote }) => (
@@ -27,6 +26,10 @@ export default function Canvas() {
                                         </li>
                                     ))}
                             </ul>
+                            <TextSubmission 
+                                onSubmit={text => upsertNote(randInt(), text, { x: 0, y: 0 })}
+                                clearOnSubmit>
+                            </TextSubmission>
                             <div>
                                 {Object.entries(notes)
                                     .map(([id, { text, position }]) => (
@@ -56,12 +59,6 @@ export default function Canvas() {
                                         </AudioPlayer>
                                     ))}
                             </div>
-                            <form onSubmit={() => upsertNote(9, inp, { x: 0, y: 0 })}>
-                                <label>
-                                    <input type="text" value={inp} onChange={e => setInput(e.target.value)} />
-                                </label>
-                                <input type="submit" value="Submit" />
-                            </form>
                         </>
                     )}
 
@@ -70,3 +67,27 @@ export default function Canvas() {
         </NotesContext.Consumer>
     );
 }
+
+const TextSubmission = (props) => {
+    const [inputValue, setInputValue] = React.useState("");
+    return (
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            props.onSubmit(inputValue);
+            if (props.clearOnSubmit) {
+                setInputValue("");
+            }
+        }}>
+            <label>
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={e => setInputValue(e.target.value)}
+                />
+            </label>
+            <input type="submit" value="Submit" />
+        </form>
+    );
+}
+
+const randInt = () => Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
