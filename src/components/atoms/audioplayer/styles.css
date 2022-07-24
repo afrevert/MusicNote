@@ -59,7 +59,7 @@
   .timebar-bound {
     background-color: #2c6670;
     width: 3px;
-    height: 32px;
+    height: 16px;
     position: absolute;
     top: 0px;
     transform: translate(-50%, calc(-50% + 2px));

@@ -19,19 +19,19 @@ export const AnnotationsContext = React.createContext({
 });
 
 export default function CanvasDataModel() {
-    const [notes, setNotes] = React.useState({0: {text: "hello", position: {x: 0, y: 0}}, 1: {text: "hello", position: {x: 0, y: 200}}, 2: {text: "hello", position: {x: 0, y: 400}}});
-    const [clips, setClips] = React.useState({10: {fileId: "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3", span: {start: 0, end: 100}, position: {x: 0, y: 0}}});
+    const [notes, setNotes] = React.useState({0: {text: "hello", position: {x: 0, y: 0}, color: "red"}, 1: {text: "hello", position: {x: 0, y: 200}, color: "green"}, 2: {text: "hello", position: {x: 0, y: 400}, color: "blue"}});
+    const [clips, setClips] = React.useState({10: {fileId: "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3", span: {start: 0, end: 100}, position: {x: 0, y: 0}, color: "purple"}});
     const [files, setFiles] = React.useState({});
     const [annotations, setAnnotations] = React.useState({});
 
     const notesContext = {
         notes,
-        upsertNote: (id, text, position) => setNotes({ ...notes, [id]: { text, position } }),
+        upsertNote: (id, text, position, color) => setNotes({ ...notes, [id]: { text, position, color} }),
         deleteNote: (id) => setNotes(({ [id]: _, ...rest }) => rest)
     }
     const clipsContext = {
         clips,
-        upsertClip: (id, fileId, span, position) => setClips({ ...clips, [id]: { fileId, span, position } }),
+        upsertClip: (id, fileId, span, position, color) => setClips({ ...clips, [id]: { fileId, span, position, color } }),
         deleteClip: (id) => setClips(({ [id]: _, ...rest }) => rest)
     }
     const filesContext = {

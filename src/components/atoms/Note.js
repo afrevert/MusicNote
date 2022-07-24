@@ -4,6 +4,7 @@ import { EditTextarea } from "react-edit-text";
 import "react-edit-text/dist/index.css";
 
 export default function Note(props) {
+  const nodeRef = React.useRef();
   const [position, setPosition] = React.useState({ x: props.position.x, y: props.position.y });
 
   const handleStop = (e, ui) => {
@@ -15,17 +16,21 @@ export default function Note(props) {
     props.onSave(value);
   }
 
-  const nodeRef = React.useRef(null);
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    props.stackElem(nodeRef);
+  }
 
   return (
     <Draggable
       onStop={handleStop}
       nodeRef={nodeRef}
     >
-      <div id='notecard'
+      <div
+        className={props.className + " notecard"}
         ref={nodeRef}
-        style={{ width: '200px', padding: '20px' }}>
-        
+        style={{ width: '200px', margin: '20px', position: 'relative' }}
+        onMouseDownCapture={handleOnClick}>
 
         <EditTextarea
           placeholder="Enter your note."

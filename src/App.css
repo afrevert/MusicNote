@@ -32,38 +32,73 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-#notecard div, textarea {
+.notecard {
   box-shadow:
-  1.5px 1.5px 2.2px rgba(0, 0, 0, 0.031),
-  3.7px 3.7px 5.3px rgba(0, 0, 0, 0.044),
-  6.8px 6.8px 10px rgba(0, 0, 0, 0.055),
-  11.6px 11.6px 17.9px rgba(0, 0, 0, 0.066),
-  19.7px 19.7px 33.4px rgba(0, 0, 0, 0.079),
-  35px 35px 80px rgba(0, 0, 0, 0.11)
-;
-border-radius: 8px;
-height: 120px !important;
-background-color: #a2c6b7;
+    1.5px 1.5px 2.2px rgba(0, 0, 0, 0.031),
+    3.7px 3.7px 5.3px rgba(0, 0, 0, 0.044),
+    6.8px 6.8px 10px rgba(0, 0, 0, 0.055),
+    11.6px 11.6px 17.9px rgba(0, 0, 0, 0.066),
+    19.7px 19.7px 33.4px rgba(0, 0, 0, 0.079),
+    35px 35px 80px rgba(0, 0, 0, 0.11);
 }
 
-#audioClip{
+.notecard,
+.notecard textarea {
+  border-radius: 8px;
+  height: 120px !important;
+  backdrop-filter: blur(14px);
+}
+.notecard div {
+  height: 120px !important;
+}
+
+.notecard textarea {
+  opacity: 0.9;
+}
+
+.note-red,
+.note-red textarea {
+  background-color: #e500009c;
+}
+
+.note-green,
+.note-green textarea {
+  background-color: #00ffb894;
+}
+
+.note-blue,
+.note-blue textarea {
+  background-color: #002cff8c;
+}
+
+.note-purple,
+.note-purple textarea {
+  background-color: #a259ffba;
+}
+
+.note-yellow,
+.note-yellow textarea {
+  background-color: #f9ce0eba;
+}
+
+#audioClip {
   box-shadow:
-  1.5px 1.5px 2.2px rgba(0, 0, 0, 0.031),
-  3.7px 3.7px 5.3px rgba(0, 0, 0, 0.044),
-  6.8px 6.8px 10px rgba(0, 0, 0, 0.055),
-  11.6px 11.6px 17.9px rgba(0, 0, 0, 0.066),
-  19.7px 19.7px 33.4px rgba(0, 0, 0, 0.079),
-  35px 35px 80px rgba(0, 0, 0, 0.11)
-;
-border-radius: 8px;
-background-color: #a2c6b7;
-width: 300px !important;
-padding-right: 10px;
+    1.5px 1.5px 2.2px rgba(0, 0, 0, 0.031),
+    3.7px 3.7px 5.3px rgba(0, 0, 0, 0.044),
+    6.8px 6.8px 10px rgba(0, 0, 0, 0.055),
+    11.6px 11.6px 17.9px rgba(0, 0, 0, 0.066),
+    19.7px 19.7px 33.4px rgba(0, 0, 0, 0.079),
+    35px 35px 80px rgba(0, 0, 0, 0.11);
+  border-radius: 8px;
+  width: 300px !important;
+  padding-right: 10px;
+  backdrop-filter: blur(14px);
 }
 
 #audioClip .controls {
